@@ -161,7 +161,7 @@ def getFailRatio(): # pragma: no cover
     return failed_ratio
 
 # Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+cov = coverage.Coverage() # pragma: no cover
 
 # Start measuring coverage
 cov.start() # pragma: no cover

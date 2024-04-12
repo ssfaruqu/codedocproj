@@ -409,14 +409,20 @@ def try_test(test, test_fail_string, test_pass_string):
         test()
         print(test_pass_string)
         print("")
+        return 1
     except Exception as e:
         print(test_fail_string)
         print(repr(e))
         print("")
+        return 0
+
+def getPassArr():
+    return pass_arr
 
 print("----- func5 LOGIC EQUIV TESTING -------")
-try_test(test_para_flat_func5, "PARA FLAT FAIL", "PARA FLAT PASS")
-try_test(test_para_struc_func5, "PARA STRUC FAIL", "PARA STRUC PASS")
-try_test(test_bullet_flat_func5, "BULLET FLAT FAIL", "BULLET FLAT PASS")
-try_test(test_bullet_struc_func5, "BULLET STRUC FAIL", "BULLET STRUC PASS")
-try_test(test_psuedo_func5, "PSUEDO FAIL", "PSUEDO PASS")
+pass_arr = [0,0,0,0,0]
+pass_arr[0] = try_test(test_para_flat_func5, "PARA FLAT FAIL", "PARA FLAT PASS")
+pass_arr[1] = try_test(test_para_struc_func5, "PARA STRUC FAIL", "PARA STRUC PASS")
+pass_arr[2] = try_test(test_bullet_flat_func5, "BULLET FLAT FAIL", "BULLET FLAT PASS")
+pass_arr[3] = try_test(test_bullet_struc_func5, "BULLET STRUC FAIL", "BULLET STRUC PASS")
+pass_arr[4] = try_test(test_psuedo_func5, "PSUEDO FAIL", "PSUEDO PASS")
