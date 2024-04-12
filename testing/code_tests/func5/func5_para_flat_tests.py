@@ -1,12 +1,6 @@
 import coverage # pragma: no cover
 import numpy as np # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func5(player_number, board, row, col):
     score = 1 
     uv_score, lh_score, rh_score = 1, 1, 1
@@ -64,62 +58,111 @@ def func5(player_number, board, row, col):
 
 #PARA FLAT TESTS
 def para_flat_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1
         # Test case 1: Empty board, no alignment
         assert func5(1, [[0, 0, 0],
                         [0, 0, 0],
                         [0, 0, 0]], 1, 1) == 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 1")
+        count += 1
 
-        count += 1 # Test case 2: Horizontal alignment of four pieces owned by player 1
+    try:
+        # Test case 2: Horizontal alignment of four pieces owned by player 1
         assert func5(1, [[0, 0, 0],
                         [1, 1, 1],
                         [0, 0, 0]], 1, 1) > 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
+        count += 1
 
-        count += 1 # Test case 3: Vertical alignment of four pieces owned by player 2
+    try:
+        # Test case 3: Vertical alignment of four pieces owned by player 2
         assert func5(2, [[0, 2, 0],
                         [0, 2, 0],
                         [0, 2, 0]], 1, 1) < 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
+        count += 1
 
-        count += 1 # Test case 4: Diagonal alignment of four pieces owned by player 1
+    try:
+        # Test case 4: Diagonal alignment of four pieces owned by player 1
         assert func5(1, [[1, 0, 0],
                         [0, 1, 0],
                         [0, 0, 1]], 1, 1) > 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
+        count += 1
 
-        count += 1 # Test case 5: Horizontal and vertical alignments owned by player 2
+    try:
+        # Test case 5: Horizontal and vertical alignments owned by player 2
         assert func5(2, [[2, 0, 0],
                         [2, 0, 0],
                         [2, 0, 0]], 1, 1) < 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
+        count += 1
 
-        count += 1 # Test case 6: Diagonal alignment of four pieces owned by player 2
+    try:
+        # Test case 6: Diagonal alignment of four pieces owned by player 2
         assert func5(2, [[0, 0, 2],
                         [0, 2, 0],
                         [2, 0, 0]], 1, 1) < 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
+        count += 1
 
-        count += 1 # Test case 7: Mixed alignments owned by player 1
+    try:
+        # Test case 7: Mixed alignments owned by player 1
         assert func5(1, [[1, 0, 0],
                         [1, 1, 0],
                         [1, 0, 1]], 1, 1) > 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
+        count += 1
 
-        count += 1 # Test case 8: Mixed alignments owned by player 2
+    try:
+        # Test case 8: Mixed alignments owned by player 2
         assert func5(2, [[2, 0, 0],
                         [2, 2, 0],
                         [2, 0, 2]], 1, 1) < 0
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
+        count += 1
 
-        count += 1 # Test case 9: Four-piece horizontal alignment owned by player 1
+    try:
+        # Test case 9: Four-piece horizontal alignment owned by player 1
         assert func5(1, [[1, 1, 1],
                         [0, 0, 0],
                         [0, 0, 0]], 0, 0) > 1000
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
+        count += 1
 
-        count += 1 # Test case 10: Four-piece diagonal alignment owned by player 2
+    try:
+        # Test case 10: Four-piece diagonal alignment owned by player 2
         assert func5(2, [[0, 0, 2],
                         [0, 2, 0],
                         [2, 0, 0]], 0, 0) < -1000
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PARA FLAT TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 10")
+        count += 1
 
-para_flat_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = para_flat_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -136,5 +179,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Para Flat Coverage Percentage:", coverage_percentage) # pragma: no cover

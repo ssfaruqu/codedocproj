@@ -1,12 +1,6 @@
 import coverage # pragma: no cover
 import numpy as np # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func5(player_number, board, row, col):
     score = 1 
     uv_score, lh_score, rh_score = 1, 1, 1
@@ -64,8 +58,10 @@ def func5(player_number, board, row, col):
 
 #PARA STRUC TESTS
 def para_struc_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1 # Test 1: Basic test case with player 1 having consecutive pieces horizontally
+        # Test 1: Basic test case with player 1 having consecutive pieces horizontally
         player_number1 = 1
         board1 = [
             [0, 0, 0, 0, 0],
@@ -79,8 +75,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score1 = 3
         score1 = func5(player_number1, board1, row1, col1)
         assert score1 == expected_score1
+    except Exception as e:
+        print(f"{repr(e)} on test case 1")
+        count += 1
 
-        count += 1 # Test 2: Test case with player 2 having consecutive pieces diagonally
+    try:
+        # Test 2: Test case with player 2 having consecutive pieces diagonally
         player_number2 = 2
         board2 = [
             [0, 0, 0, 0, 0],
@@ -94,8 +94,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score2 = -3
         score2 = func5(player_number2, board2, row2, col2)
         assert score2 == expected_score2
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
+        count += 1
 
-        count += 1 # Test 3: Test case with no consecutive pieces
+    try:
+        # Test 3: Test case with no consecutive pieces
         player_number3 = 1
         board3 = [
             [0, 0, 0, 0, 0],
@@ -109,8 +113,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score3 = 0
         score3 = func5(player_number3, board3, row3, col3)
         assert score3 == expected_score3
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
+        count += 1
 
-        count += 1 # Test 4: Test case with player 2 having consecutive pieces vertically
+    try:
+        # Test 4: Test case with player 2 having consecutive pieces vertically
         player_number4 = 2
         board4 = [
             [0, 0, 0, 0, 0],
@@ -124,8 +132,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score4 = -2
         score4 = func5(player_number4, board4, row4, col4)
         assert score4 == expected_score4
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
+        count += 1
 
-        count += 1 # Test 5: Test case with player 1 having consecutive pieces diagonally
+    try:
+        # Test 5: Test case with player 1 having consecutive pieces diagonally
         player_number5 = 1
         board5 = [
             [0, 0, 0, 0, 0],
@@ -139,8 +151,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score5 = 2
         score5 = func5(player_number5, board5, row5, col5)
         assert score5 == expected_score5
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
+        count += 1
 
-        count += 1 # Test 6: Test case with player 1 having consecutive pieces horizontally and diagonally
+    try:
+        # Test 6: Test case with player 1 having consecutive pieces horizontally and diagonally
         player_number6 = 1
         board6 = [
             [0, 0, 0, 0, 0],
@@ -154,8 +170,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score6 = 5
         score6 = func5(player_number6, board6, row6, col6)
         assert score6 == expected_score6
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
+        count += 1
 
-        count += 1 # Test 7: Test case with player 2 having consecutive pieces horizontally and vertically
+    try:
+        # Test 7: Test case with player 2 having consecutive pieces horizontally and vertically
         player_number7 = 2
         board7 = [
             [0, 0, 0, 0, 0],
@@ -169,8 +189,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score7 = -7
         score7 = func5(player_number7, board7, row7, col7)
         assert score7 == expected_score7
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
+        count += 1
 
-        count += 1 # Test 8: Test case with player 1 having consecutive pieces horizontally, vertically, and diagonally
+    try:
+        # Test 8: Test case with player 1 having consecutive pieces horizontally, vertically, and diagonally
         player_number8 = 1
         board8 = [
             [0, 0, 0, 0, 0],
@@ -184,8 +208,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score8 = 8
         score8 = func5(player_number8, board8, row8, col8)
         assert score8 == expected_score8
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
+        count += 1
 
-        count += 1 # Test 9: Test case with player 2 having consecutive pieces horizontally and diagonally
+    try:
+        # Test 9: Test case with player 2 having consecutive pieces horizontally and diagonally
         player_number9 = 2
         board9 = [
             [0, 0, 0, 0, 0],
@@ -199,8 +227,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_score9 = -4
         score9 = func5(player_number9, board9, row9, col9)
         assert score9 == expected_score9
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
+        count += 1
 
-        count += 1 # Test 10: Test case with player 1 having consecutive pieces horizontally, vertically, and diagonally
+    try:
+        # Test 10: Test case with player 1 having consecutive pieces horizontally, vertically, and diagonally
         player_number10 = 1
         board10 = [
             [0, 0, 0, 0, 0],
@@ -212,18 +244,25 @@ def para_struc_test_cases(): # pragma: no cover
         row10 = 3
         col10 = 2
         expected_score10 = 12
-        score10 = func5(player_number10,
-
-        board10, row10, col10)
+        score10 = func5(player_number10, board10, row10, col10)
         assert score10 == expected_score10
-
-        print("All tests passed!")
-
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PARA STRUC TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 10")
+        count += 1
 
-para_struc_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = para_struc_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -240,5 +279,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Para Struc Coverage Percentage:", coverage_percentage) # pragma: no cover

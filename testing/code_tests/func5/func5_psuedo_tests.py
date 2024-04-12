@@ -1,12 +1,6 @@
 import coverage # pragma: no cover
 import numpy as np # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage() # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func5(player_number, board, row, col):
     score = 1 
     uv_score, lh_score, rh_score = 1, 1, 1
@@ -64,8 +58,10 @@ def func5(player_number, board, row, col):
 
 #PSUEDO TESTS
 def psuedo_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1 # Test 1: Horizontal win for player 1
+        # Test 1: Horizontal win for player 1
         player_number = 1
         board = [
             [0, 0, 0, 0, 0],
@@ -77,8 +73,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 2
         col = 0
         assert func5(player_number, board, row, col) == 10000
+    except Exception as e:
+        print(f"{repr(e)} on test case 1")
+        count += 1
 
-        count += 1 # Test 2: Vertical win for player 2
+    try:
+        # Test 2: Vertical win for player 2
         player_number = 2
         board = [
             [0, 0, 0, 0, 0],
@@ -90,8 +90,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 2
         col = 0
         assert func5(player_number, board, row, col) == -10000
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
+        count += 1
 
-        count += 1 # Test 3: Diagonal win for player 1
+    try:
+        # Test 3: Diagonal win for player 1
         player_number = 1
         board = [
             [1, 0, 0, 0, 0],
@@ -103,8 +107,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 0
         col = 0
         assert func5(player_number, board, row, col) == 10000
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
+        count += 1
 
-        count += 1 # Test 4: No win
+    try:
+        # Test 4: No win
         player_number = 1
         board = [
             [0, 0, 0, 0, 0],
@@ -116,8 +124,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 2
         col = 0
         assert func5(player_number, board, row, col) == 2
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
+        count += 1
 
-        count += 1 # Test 5: Player 2 with no available moves
+    try:
+        # Test 5: Player 2 with no available moves
         player_number = 2
         board = [
             [1, 2, 1, 2, 1],
@@ -129,8 +141,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 0
         col = 0
         assert func5(player_number, board, row, col) == -6
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
+        count += 1
 
-        count += 1 # Test 6: Empty board
+    try:
+        # Test 6: Empty board
         player_number = 1
         board = [
             [0, 0, 0, 0, 0],
@@ -142,8 +158,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 0
         col = 0
         assert func5(player_number, board, row, col) == 3
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
+        count += 1
 
-        count += 1 # Test 7: Player 1 with a nearly winning move
+    try:
+        # Test 7: Player 1 with a nearly winning move
         player_number = 1
         board = [
             [1, 0, 0, 0, 0],
@@ -155,8 +175,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 0
         col = 0
         assert func5(player_number, board, row, col) == 2
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
+        count += 1
 
-        count += 1 # Test 8: Player 2 with a nearly winning move
+    try:
+        # Test 8: Player 2 with a nearly winning move
         player_number = 2
         board = [
             [0, 0, 0, 0, 0],
@@ -168,8 +192,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 1
         col = 0
         assert func5(player_number, board, row, col) == -2
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
+        count += 1
 
-        count += 1 # Test 9: Player 1 with multiple winning possibilities
+    try:
+        # Test 9: Player 1 with multiple winning possibilities
         player_number = 1
         board = [
             [0, 0, 0, 0, 0],
@@ -181,8 +209,12 @@ def psuedo_test_cases(): # pragma: no cover
         row = 2
         col = 1
         assert func5(player_number, board, row, col) == 10000
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
+        count += 1
 
-        count += 1 # Test 10: Player 2 with multiple winning possibilities
+    try:
+        # Test 10: Player 2 with multiple winning possibilities
         player_number = 2
         board = [
             [0, 0, 0, 0, 0],
@@ -194,14 +226,23 @@ def psuedo_test_cases(): # pragma: no cover
         row = 2
         col = 1
         assert func5(player_number, board, row, col) == -10000
-
-        print("All tests passed successfully!")
-
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PSUEDO TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 10")
+        count += 1
 
-psuedo_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage() # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = psuedo_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -218,5 +259,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Psuedo Coverage Percentage:", coverage_percentage) # pragma: no cover
