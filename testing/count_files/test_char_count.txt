@@ -1,0 +1,32 @@
+para flat func5 tests:     1624
+para struc func5 tests:    3591
+bullet flat func5 tests:   1581
+bullet struct func5 tests: 1760
+psuedo func5 tests:        2600
+
+para flat func7 tests:   2374
+para struct func7 tests: 2230
+
+para flat func6 tests:      1840
+para struct func6 tests:    1556
+bullet flat func6 tests:     793
+bullet struc func6 tests:    958
+psuedo func6 tests:         1047
+
+para flat func10 tests:      929
+para struct func10 tests:   1812
+bullet flat func10 tests:   1103
+bullet struct func10 tests: 1328
+psuedo func10 tests:        1399
+
+para flat func11 tests:     2393
+para struct func11 tests:   2125
+bullet flat func11 tests:   1645
+bullet struct func11 tests: 1695
+psuedo func11 tests:        1927
+
+para flat func9 tests:      1644
+para struct func9 tests:    4212
+bullet flat func9 tests:    1619
+bullet struct func9 tests:  3207
+psuedo func9 tests:         3865

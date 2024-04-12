@@ -1,0 +1,13 @@
+Give me a concise, unstructured one paragraph summary of the following code:
+
+Give me a concise, structured one paragraph summary of the following code, including a concise section for the input and return values:
+
+Give a concise, unstructured bullet point documentation of the following code:
+
+Give a concise, structured bullet point summary of the following code, including bullet points for input and return values:
+
+Write concise psuedocode that gives a high-level description for the following:
+
+Generate just a python function based on the following description:
+
+Write python code for just 10 tests, without creating new functions, for a program with the following description:
