@@ -61,71 +61,71 @@ def bullet_struc_test_cases(): # pragma: no cover
     try:
         # Test case 1: Head at the top-left corner, food at the bottom-right corner
         assert func9(0, 0, 9, 9, 0, 9, 10, []) == ['L', 'U', 'R', 'D', False, False, False, False]
-    except AssertionError:
-        print("Test case 1 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 1")
         count += 1
 
     try:
         # Test case 2: Head at the top-right corner, food at the bottom-left corner
         assert func9(9, 0, 0, 9, 0, 9, 10, []) == ['R', 'U', 'L', 'D', False, False, False, False]
-    except AssertionError:
-        print("Test case 2 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
         count += 1
 
     try:
         # Test case 3: Head at the bottom-left corner, food at the top-right corner
         assert func9(0, 9, 9, 0, 0, 9, 10, []) == ['L', 'D', 'R', 'U', False, False, False, False]
-    except AssertionError:
-        print("Test case 3 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
         count += 1
 
     try:
         # Test case 4: Head at the bottom-right corner, food at the top-left corner
         assert func9(9, 9, 0, 0, 0, 9, 10, []) == ['R', 'D', 'L', 'U', False, False, False, False]
-    except AssertionError:
-        print("Test case 4 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
         count += 1
 
     try:
         # Test case 5: Head in the middle, food directly above
         assert func9(5, 5, 5, 0, 0, 9, 10, []) == ['-', 'U', '-', 'D', False, False, False, False]
-    except AssertionError:
-        print("Test case 5 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
         count += 1
 
     try:
         # Test case 6: Head in the middle, food directly below
         assert func9(5, 5, 5, 9, 0, 9, 10, []) == ['-', 'D', '-', 'U', False, False, False, False]
-    except AssertionError:
-        print("Test case 6 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
         count += 1
 
     try:
         # Test case 7: Head in the middle, food directly to the left
         assert func9(5, 5, 0, 5, 0, 9, 10, []) == ['L', '-', 'R', '-', False, False, False, False]
-    except AssertionError:
-        print("Test case 7 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
         count += 1
 
     try:
         # Test case 8: Head in the middle, food directly to the right
         assert func9(5, 5, 9, 5, 0, 9, 10, []) == ['R', '-', 'L', '-', False, False, False, False]
-    except AssertionError:
-        print("Test case 8 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
         count += 1
 
     try:
         # Test case 9: Head in the middle, body segment to the left
         assert func9(5, 5, 9, 5, 0, 9, 10, [[5, 4]]) == ['R', '-', 'L', '-', False, True, False, False]
-    except AssertionError:
-        print("Test case 9 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
         count += 1
 
     try:
         # Test case 10: Head in the middle, body segment directly above
         assert func9(5, 5, 9, 5, 0, 9, 10, [[5, 6]]) == ['R', '-', 'L', '-', True, False, False, False]
-    except AssertionError:
-        print("Test case 10 failed!")
+    except Exception as e:
+        print(f"{repr(e)} on test case 10")
         count += 1
 
     print(f"Total failed test cases: {count}")

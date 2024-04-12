@@ -52,7 +52,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = 'gknnq'
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 1")
+        print(f"{repr(e)} on test case 1")
         count += 1
 
     try:
@@ -63,7 +63,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = 'vaokn'
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 2")
+        print(f"{repr(e)} on test case 2")
         count += 1
 
     try:
@@ -74,7 +74,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = 'grutus'
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 3")
+        print(f"{repr(e)} on test case 3")
         count += 1
 
     try:
@@ -85,7 +85,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = 'cftwnz'
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 4")
+        print(f"{repr(e)} on test case 4")
         count += 1
 
     try:
@@ -96,7 +96,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = ''
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 5")
+        print(f"{repr(e)} on test case 5")
         count += 1
 
     try:
@@ -107,7 +107,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = ''
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 6")
+        print(f"{repr(e)} on test case 6")
         count += 1
 
     try:
@@ -118,7 +118,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = ''
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 7")
+        print(f"{repr(e)} on test case 7")
         count += 1
 
     try:
@@ -129,7 +129,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = ''
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 8")
+        print(f"{repr(e)} on test case 8")
         count += 1
 
     try:
@@ -140,7 +140,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = 'y'
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 9")
+        print(f"{repr(e)} on test case 9")
         count += 1
 
     try:
@@ -151,7 +151,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = 'y'
         assert func10(a, b, c) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on Test 10")
+        print(f"{repr(e)} on test case 10")
         count += 1
 
     print(f"Total failed test cases: {count}")

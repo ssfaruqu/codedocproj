@@ -1,11 +1,6 @@
 import coverage # pragma: no cover
 import math # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func6(n):
     if len(n) == 0:
         return []
@@ -22,43 +17,91 @@ def func6(n):
 
 #BULLET STRUC TESTS
 def bullet_struc_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1 # Test 1: Empty list input
+        # Test 1: Empty list input
         assert func6([]) == []
-
-        count += 1 # Test 2: Single element list input
-        assert func6([5]) == [10]
-
-        count += 1 # Test 3: List with two elements
-        assert func6([3, 7]) == [6, 14]
-
-        count += 1 # Test 4: List with multiple even number of elements
-        assert func6([1, 2, 3, 4, 5, 6]) == [2, 4, 6, 8, 10, 12]
-
-        count += 1 # Test 5: List with multiple odd number of elements
-        assert func6([2, 4, 6, 8, 10]) == [4, 8, 12, 16, 20]
-
-        count += 1 # Test 6: List with all elements as negative numbers
-        assert func6([-2, -4, -6, -8]) == [-4, -8, -12, -16]
-
-        count += 1 # Test 7: List with all elements as positive numbers
-        assert func6([1, 2, 3, 4]) == [2, 4, 6, 8]
-
-        count += 1 # Test 8: List with a mix of positive and negative numbers
-        assert func6([-1, 2, -3, 4, -5]) == [-2, 4, -6, 8, -10]
-
-        count += 1 # Test 9: List with floating-point numbers
-        assert func6([1.5, 2.5, 3.5]) == [3.0, 5.0, 7.0]
-
-        count += 1 # Test 10: List with string elements
-        assert func6(['a', 'b', 'c']) == ['aa', 'bb', 'cc']
-
-        print("All tests passed!")
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("BULLET STRUC TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 1")
+        count += 1
 
-bullet_struc_test_cases() # pragma: no cover
+    try:
+        # Test 2: Single element list input
+        assert func6([5]) == [10]
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
+        count += 1
+
+    try:
+        # Test 3: List with two elements
+        assert func6([3, 7]) == [6, 14]
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
+        count += 1
+
+    try:
+        # Test 4: List with multiple even number of elements
+        assert func6([1, 2, 3, 4, 5, 6]) == [2, 4, 6, 8, 10, 12]
+    except Exception as e:
+        print(f"{repr(e)} on test csae 4")
+        count += 1
+
+    try:
+        # Test 5: List with multiple odd number of elements
+        assert func6([2, 4, 6, 8, 10]) == [4, 8, 12, 16, 20]
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
+        count += 1
+
+    try:
+        # Test 6: List with all elements as negative numbers
+        assert func6([-2, -4, -6, -8]) == [-4, -8, -12, -16]
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
+        count += 1
+
+    try:
+        # Test 7: List with all elements as positive numbers
+        assert func6([1, 2, 3, 4]) == [2, 4, 6, 8]
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
+        count += 1
+
+    try:
+        # Test 8: List with a mix of positive and negative numbers
+        assert func6([-1, 2, -3, 4, -5]) == [-2, 4, -6, 8, -10]
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
+        count += 1
+
+    try:
+        # Test 9: List with floating-point numbers
+        assert func6([1.5, 2.5, 3.5]) == [3.0, 5.0, 7.0]
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
+        count += 1
+
+    try:
+        # Test 10: List with string elements
+        assert func6(['a', 'b', 'c']) == ['aa', 'bb', 'cc']
+    except Exception as e:
+        print(f"{repr(e)} on test case 10")
+        count += 1
+
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = bullet_struc_test_cases() # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -75,5 +118,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Bullet Struc Coverage Percentage:", coverage_percentage) # pragma: no cover

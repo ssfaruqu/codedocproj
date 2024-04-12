@@ -71,7 +71,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [0, 1, 2, 1, 0, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 1")
+        print(f"{repr(e)} on test case 1")
         count += 1
 
     try:
@@ -87,7 +87,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [1, 2, 0, 1, 0, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 2")
+        print(f"{repr(e)} on test case 2")
         count += 1
 
     try:
@@ -103,7 +103,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [2, 2, 1, 0, 1, 1, 1, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 3")
+        print(f"{repr(e)} on test case 3")
         count += 1
 
     try:
@@ -119,7 +119,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [2, 2, 2, 2, 0, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 4")
+        print(f"{repr(e)} on test case 4")
         count += 1
 
     try:
@@ -135,7 +135,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [2, 2, 2, 2, 1, 1, 1, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 5")
+        print(f"{repr(e)} on test case 5")
         count += 1
 
     try:
@@ -151,7 +151,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [2, 2, 2, 2, 1, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 6")
+        print(f"{repr(e)} on test case 6")
         count += 1
 
     try:
@@ -167,7 +167,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [0, 1, 2, 1, 1, 1, 1, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 7")
+        print(f"{repr(e)} on test case 7")
         count += 1
 
     try:
@@ -183,7 +183,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [1, 2, 0, 1, 1, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 8")
+        print(f"{repr(e)} on test case 8")
         count += 1
 
     try:
@@ -199,7 +199,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [2, 2, 2, 2, 0, 0, 1, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 9")
+        print(f"{repr(e)} on test case 9")
         count += 1
 
     try:
@@ -215,7 +215,7 @@ def psuedo_test_cases(): # pragma: no cover
         expected_output = [2, 2, 2, 2, 0, 0, 0, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
     except Exception as e:
-        print(f"{repr(e)} on test 10")
+        print(f"{repr(e)} on test case 10")
         count += 1
 
     print(f"Total failed test cases: {count}")
