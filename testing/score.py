@@ -1,7 +1,7 @@
 import coverage
 
 # ACCESS TO LOGICAL EQUIVALENCE TESTS
-import codedoc.testing.logic_equiv.func11_logic_equiv as func11_le
+import logic_equiv.func11_logic_equiv as func11_le
 
 # ACCESS TO TEST CASE FAIL RATIOS
 import sys

@@ -1,11 +1,5 @@
 import coverage # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func10(a, b, c):
     char_vals = [ord(c) for c in a]
 
@@ -48,73 +42,121 @@ def func10(a, b, c):
 
 #BULLET STRUC TESTS
 def bullet_struc_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1 # Test 1: c = 0, common characters in a and b, a is shorter than b
-        a = "abc"
-        b = "defghi"
-        c = 0
-        assert func10(a, b, c) == 'abcdefghi'
-
-        count += 1 # Test 2: c = 1, common characters in a and b, b is shorter than a
-        a = "def"
-        b = "abc"
-        c = 1
-        assert func10(a, b, c) == 'bcadef'
-
-        count += 1 # Test 3: c = 2, common characters in a and b, a and b are equal length
-        a = "ghi"
-        b = "jkl"
-        c = 2
-        assert func10(a, b, c) == 'gijlm'
-
-        count += 1 # Test 4: c = 3, common characters in a and b, a and b are equal length
-        a = "abc"
-        b = "def"
-        c = 3
-        assert func10(a, b, c) == 'dgj'
-
-        count += 1 # Test 5: c = 4, common characters in a and b, a is shorter than b
-        a = "abcd"
-        b = "efghijkl"
-        c = 4
-        assert func10(a, b, c) == 'efghijklmnopq'
-
-        count += 1 # Test 6: c = 5, common characters in a and b, b is shorter than a
-        a = "lmnop"
-        b = "ijkl"
-        c = 5
-        assert func10(a, b, c) == 'ijklopqr'
-
-        count += 1 # Test 7: c = 0, no common characters in a and b
-        a = "abc"
-        b = "def"
-        c = 0
-        assert func10(a, b, c) == 'abc'
-
-        count += 1 # Test 8: c = 1, no common characters in a and b
-        a = "abc"
-        b = "def"
-        c = 1
-        assert func10(a, b, c) == 'defabc'
-
-        count += 1 # Test 9: c = 2, no common characters in a and b
-        a = "abc"
-        b = "def"
-        c = 2
-        assert func10(a, b, c) == 'fgh'
-
-        count += 1 # Test 10: c = 3, no common characters in a and b
-        a = "abc"
-        b = "def"
-        c = 3
-        assert func10(a, b, c) == 'ghi'
-
-        print("All tests passed!")
+        # Test 1: c = 0, common characters in a and b, a is shorter than b
+        a1 = "abc"
+        b1 = "defghi"
+        c1 = 0
+        assert func10(a1, b1, c1) == 'abcdefghi'
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("BULLET STRUC TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 1")
+        count += 1
 
-bullet_struc_test_cases() # pragma: no cover
+    try:
+        # Test 2: c = 1, common characters in a and b, b is shorter than a
+        a2 = "def"
+        b2 = "abc"
+        c2 = 1
+        assert func10(a2, b2, c2) == 'bcadef'
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
+        count += 1
+
+    try:
+        # Test 3: c = 2, common characters in a and b, a and b are equal length
+        a3 = "ghi"
+        b3 = "jkl"
+        c3 = 2
+        assert func10(a3, b3, c3) == 'gijlm'
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
+        count += 1
+
+    try:
+        # Test 4: c = 3, common characters in a and b, a and b are equal length
+        a4 = "abc"
+        b4 = "def"
+        c4 = 3
+        assert func10(a4, b4, c4) == 'dgj'
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
+        count += 1
+
+    try:
+        # Test 5: c = 4, common characters in a and b, a is shorter than b
+        a5 = "abcd"
+        b5 = "efghijkl"
+        c5 = 4
+        assert func10(a5, b5, c5) == 'efghijklmnopq'
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
+        count += 1
+
+    try:
+        # Test 6: c = 5, common characters in a and b, b is shorter than a
+        a6 = "lmnop"
+        b6 = "ijkl"
+        c6 = 5
+        assert func10(a6, b6, c6) == 'ijklopqr'
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
+        count += 1
+
+    try:
+        # Test 7: c = 0, no common characters in a and b
+        a7 = "abc"
+        b7 = "def"
+        c7 = 0
+        assert func10(a7, b7, c7) == 'abc'
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
+        count += 1
+
+    try:
+        # Test 8: c = 1, no common characters in a and b
+        a8 = "abc"
+        b8 = "def"
+        c8 = 1
+        assert func10(a8, b8, c8) == 'defabc'
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
+        count += 1
+
+    try:
+        # Test 9: c = 2, no common characters in a and b
+        a9 = "abc"
+        b9 = "def"
+        c9 = 2
+        assert func10(a9, b9, c9) == 'fgh'
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
+        count += 1
+
+    try:
+        # Test 10: c = 3, no common characters in a and b
+        a10 = "abc"
+        b10 = "def"
+        c10 = 3
+        assert func10(a10, b10, c10) == 'ghi'
+    except Exception as e:
+        print(f"{repr(e)} on test case 10")
+        count += 1
+
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = bullet_struc_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -131,5 +173,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Bullet Struc Coverage Percentage:", coverage_percentage) # pragma: no cover

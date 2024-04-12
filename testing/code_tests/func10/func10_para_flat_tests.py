@@ -1,11 +1,5 @@
 import coverage # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func10(a, b, c):
     char_vals = [ord(c) for c in a]
 
@@ -48,42 +42,91 @@ def func10(a, b, c):
 
 #PARA FLAT TESTS
 def para_flat_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1
         # Test case 1: c is 0, simple arithmetic operation
         assert func10("abc", "def", 0) == "hfn"
+    except Exception as e:
+        print(f"{repr(e)} on test case 1")
         count += 1
+
+    try:
         # Test case 2: c is negative, no repetition
         assert func10("hello", "world", -2) == "c`c["
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
         count += 1
+
+    try:
         # Test case 3: c is positive, repetition applied
         assert func10("hello", "world", 3) == "cccfkkkoxthhxhhh"
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
         count += 1
+
+    try:
         # Test case 4: a is empty, result is empty
         assert func10("", "world", 2) == ""
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
         count += 1
+
+    try:
         # Test case 5: b is empty, result is empty
         assert func10("hello", "", 2) == ""
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
         count += 1
+
+    try:
         # Test case 6: a and b have different lengths, shorter length is considered
         assert func10("hello", "wo", 2) == "c`"
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
         count += 1
+
+    try:
         # Test case 7: c is 1, no repetition
         assert func10("hello", "world", 1) == "c`c["
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
         count += 1
+
+    try:
         # Test case 8: c is 0, a and b are equal
         assert func10("abc", "abc", 0) == "hfh"
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
         count += 1
+
+    try:
         # Test case 9: c is 2, repetition applied
         assert func10("abc", "def", 2) == "hfnhfn"
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
         count += 1
+
+    try:
         # Test case 10: c is negative, a and b are equal
         assert func10("hello", "hello", -2) == "eaeaa@Y@Y"
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PARA FLAT TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 10")
+        count += 1
 
-para_flat_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = para_flat_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
