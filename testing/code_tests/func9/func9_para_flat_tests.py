@@ -1,11 +1,5 @@
 import coverage # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body):
         head_pos = [head_x, head_y]
 
@@ -62,52 +56,91 @@ def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID
 
 #PARA FLAT TESTS
 def para_flat_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1
         # Test case 1: Head at top-left corner, no food, no body
         assert func9((0, 0), None, (10, 10), [])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 1")
         count += 1
+
+    try:
         # Test case 2: Head at bottom-right corner, food at top-left corner, no body
         assert func9((9, 9), (0, 0), (10, 10), [])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 2")
         count += 1
+
+    try:
         # Test case 3: Head at center, food at bottom-right corner, body surrounding
         assert func9((5, 5), (9, 9), (10, 10), [(4, 5), (6, 5), (5, 4), (5, 6)])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 3")
         count += 1
+
+    try:
         # Test case 4: Head at top-right corner, food at bottom-left corner, no body
         assert func9((0, 9), (9, 0), (10, 10), [])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 4")
         count += 1
+
+    try:
         # Test case 5: Head at bottom-left corner, food at top-right corner, body at top-left corner
         assert func9((9, 0), (0, 9), (10, 10), [(0, 0), (0, 1), (1, 0)])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 5")
         count += 1
+
+    try:
         # Test case 6: Head at top-left corner, food at top-right corner, body at bottom-left corner
         assert func9((0, 0), (0, 9), (10, 10), [(9, 0), (9, 1), (8, 0)])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 6")
         count += 1
+
+    try:
         # Test case 7: Head at top-left corner, food at bottom-right corner, body forming a ring around food
         assert func9((0, 0), (9, 9), (10, 10), [(0, 1), (1, 0), (1, 1), (1, 2), (2, 1), (2, 0)])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 7")
         count += 1
+
+    try:
         # Test case 8: Head at bottom-left corner, food at top-left corner, body forming a straight line along the right side
         assert func9((9, 0), (0, 0), (10, 10), [(8, 9), (7, 9), (6, 9), (5, 9), (4, 9)])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 8")
         count += 1
+
+    try:
         # Test case 9: Head at bottom-right corner, food at top-right corner, body forming a straight line along the left side
         assert func9((9, 9), (0, 9), (10, 10), [(8, 0), (7, 0), (6, 0), (5, 0), (4, 0)])
-
+    except Exception as e:
+        print(f"{repr(e)} on test case 9")
         count += 1
+
+    try:
         # Test case 10: Head in the middle, food at top-right corner, body forming a circle around the head
         assert func9((5, 5), (0, 9), (10, 10), [(4, 5), (4, 6), (4, 7), (5, 7), (6, 7), (6, 6), (6, 5), (5, 4), (4, 4)])
-
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PARA FLAT TEST CASE FAILED\n")
+        print(f"{repr(e)} on test case 10")
+        count += 1
 
-para_flat_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = para_flat_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -124,5 +157,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Para Flat Coverage Percentage:", coverage_percentage) # pragma: no cover

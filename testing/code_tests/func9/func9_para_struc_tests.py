@@ -1,11 +1,5 @@
 import coverage # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body):
         head_pos = [head_x, head_y]
 
@@ -62,8 +56,10 @@ def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID
 
 #PARA STRUC TESTS
 def para_struc_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1 # Test 1: Basic test case with head adjacent to the minimum X limit and food to the right
+        # Test 1: Basic test case with head adjacent to the minimum X limit and food to the right
         head_x1, head_y1 = 0, 5
         food_x1, food_y1 = 2, 5
         BOARD_LIMIT_MIN1, BOARD_LIMIT_MAX1 = 0, 10
@@ -72,8 +68,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output1 = [1, 2, 1, 2, 0, 0, 0, 1]
         output1 = func9(head_x1, head_y1, food_x1, food_y1, BOARD_LIMIT_MIN1, BOARD_LIMIT_MAX1, GRID_SIZE1, body1)
         assert output1 == expected_output1
+    except Exception as e:
+        print(f"{repr(e)} on test 1")
+        count += 1
 
-        count += 1 # Test 2: Test case with head adjacent to the maximum Y limit and food below
+    try:
+        # Test 2: Test case with head adjacent to the maximum Y limit and food below
         head_x2, head_y2 = 8, 9
         food_x2, food_y2 = 8, 7
         BOARD_LIMIT_MIN2, BOARD_LIMIT_MAX2 = 0, 10
@@ -82,8 +82,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output2 = [0, 1, 2, 0, 0, 0, 1, 0]
         output2 = func9(head_x2, head_y2, food_x2, food_y2, BOARD_LIMIT_MIN2, BOARD_LIMIT_MAX2, GRID_SIZE2, body2)
         assert output2 == expected_output2
+    except Exception as e:
+        print(f"{repr(e)} on test 2")
+        count += 1
 
-        count += 1 # Test 3: Test case with head adjacent to neither X nor Y limit and food to the left
+    try:
+        # Test 3: Test case with head adjacent to neither X nor Y limit and food to the left
         head_x3, head_y3 = 5, 5
         food_x3, food_y3 = 3, 5
         BOARD_LIMIT_MIN3, BOARD_LIMIT_MAX3 = 0, 10
@@ -92,8 +96,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output3 = [2, 2, 0, 0, 0, 0, 1, 0]
         output3 = func9(head_x3, head_y3, food_x3, food_y3, BOARD_LIMIT_MIN3, BOARD_LIMIT_MAX3, GRID_SIZE3, body3)
         assert output3 == expected_output3
+    except Exception as e:
+        print(f"{repr(e)} on test 3")
+        count += 1
 
-        count += 1 # Test 4: Test case with food in the same row as the head but to the left
+    try:
+        # Test 4: Test case with food in the same row as the head but to the left
         head_x4, head_y4 = 3, 2
         food_x4, food_y4 = 2, 2
         BOARD_LIMIT_MIN4, BOARD_LIMIT_MAX4 = 0, 10
@@ -102,8 +110,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output4 = [2, 0, 0, 0, 0, 0, 0, 1]
         output4 = func9(head_x4, head_y4, food_x4, food_y4, BOARD_LIMIT_MIN4, BOARD_LIMIT_MAX4, GRID_SIZE4, body4)
         assert output4 == expected_output4
+    except Exception as e:
+        print(f"{repr(e)} on test 4")
+        count += 1
 
-        count += 1 # Test 5: Test case with food in the same column as the head but below
+    try:
+        # Test 5: Test case with food in the same column as the head but below
         head_x5, head_y5 = 7, 8
         food_x5, food_y5 = 7, 9
         BOARD_LIMIT_MIN5, BOARD_LIMIT_MAX5 = 0, 10
@@ -112,8 +124,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output5 = [0, 2, 0, 0, 0, 1, 0, 0]
         output5 = func9(head_x5, head_y5, food_x5, food_y5, BOARD_LIMIT_MIN5, BOARD_LIMIT_MAX5, GRID_SIZE5, body5)
         assert output5 == expected_output5
+    except Exception as e:
+        print(f"{repr(e)} on test 5")
+        count += 1
 
-        count += 1 # Test 6: Test case with head adjacent to the minimum Y limit and food above
+    try:
+        # Test 6: Test case with head adjacent to the minimum Y limit and food above
         head_x6, head_y6 = 3, 0
         food_x6, food_y6 = 3, 2
         BOARD_LIMIT_MIN6, BOARD_LIMIT_MAX6 = 0, 10
@@ -122,8 +138,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output6 = [0, 0, 0, 1, 0, 0, 0, 0]
         output6 = func9(head_x6, head_y6, food_x6, food_y6, BOARD_LIMIT_MIN6, BOARD_LIMIT_MAX6, GRID_SIZE6, body6)
         assert output6 == expected_output6
+    except Exception as e:
+        print(f"{repr(e)} on test 6")
+        count += 1
 
-        count += 1 # Test 7: Test case with head adjacent to the maximum X limit and food to the left
+    try:
+        # Test 7: Test case with head adjacent to the maximum X limit and food to the left
         head_x7, head_y7 = 9, 5
         food_x7, food_y7 = 7, 5
         BOARD_LIMIT_MIN7, BOARD_LIMIT_MAX7 = 0, 10
@@ -132,8 +152,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output7 = [1, 0, 2, 0, 0, 0, 1, 0]
         output7 = func9(head_x7, head_y7, food_x7, food_y7, BOARD_LIMIT_MIN7, BOARD_LIMIT_MAX7, GRID_SIZE7, body7)
         assert output7 == expected_output7
+    except Exception as e:
+        print(f"{repr(e)} on test 7")
+        count += 1
 
-        count += 1 # Test 8: Test case with head adjacent to the minimum X limit and food to the right
+    try:
+        # Test 8: Test case with head adjacent to the minimum X limit and food to the right
         head_x8, head_y8 = 0, 5
         food_x8, food_y8 = 2, 5
         BOARD_LIMIT_MIN8, BOARD_LIMIT_MAX8 = 0, 10
@@ -142,8 +166,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output8 = [1, 2, 1, 2, 0, 0, 0, 1]
         output8 = func9(head_x8, head_y8, food_x8, food_y8, BOARD_LIMIT_MIN8, BOARD_LIMIT_MAX8, GRID_SIZE8, body8)
         assert output8 == expected_output8
+    except Exception as e:
+        print(f"{repr(e)} on test 8")
+        count += 1
 
-        count += 1 # Test 9: Test case with head adjacent to the maximum Y limit and food below
+    try:
+        # Test 9: Test case with head adjacent to the maximum Y limit and food below
         head_x9, head_y9 = 8, 9
         food_x9, food_y9 = 8, 7
         BOARD_LIMIT_MIN9, BOARD_LIMIT_MAX9 = 0, 10
@@ -152,8 +180,12 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output9 = [0, 1, 2, 0, 0, 0, 1, 0]
         output9 = func9(head_x9, head_y9, food_x9, food_y9, BOARD_LIMIT_MIN9, BOARD_LIMIT_MAX9, GRID_SIZE9, body9)
         assert output9 == expected_output9
+    except Exception as e:
+        print(f"{repr(e)} on test 9")
+        count += 1
 
-        count += 1 # Test 10: Test case with head adjacent to neither X nor Y limit and food to the left
+    try:
+        # Test 10: Test case with head adjacent to neither X nor Y limit and food to the left
         head_x10, head_y10 = 5, 5
         food_x10, food_y10 = 3, 5
         BOARD_LIMIT_MIN10, BOARD_LIMIT_MAX10 = 0, 10
@@ -162,13 +194,23 @@ def para_struc_test_cases(): # pragma: no cover
         expected_output10 = [2, 2, 0, 0, 0, 0, 1, 0]
         output10 = func9(head_x10, head_y10, food_x10, food_y10, BOARD_LIMIT_MIN10, BOARD_LIMIT_MAX10, GRID_SIZE10, body10)
         assert output10 == expected_output10
-
-        print("All tests passed!")
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PARA STRUC TEST CASE FAILED\n")
+        print(f"{repr(e)} on test 10")
+        count += 1
 
-para_struc_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = para_struc_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -185,5 +227,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Para Struc Coverage Percentage:", coverage_percentage) # pragma: no cover

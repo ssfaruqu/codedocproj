@@ -1,11 +1,5 @@
 import coverage # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage() # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body):
         head_pos = [head_x, head_y]
 
@@ -62,9 +56,10 @@ def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID
 
 #PSUEDO TESTS
 def psuedo_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1
-        count += 1 # Test 1: Head at the minimum board limit, food below head, no body
+        # Test 1: Head at the minimum board limit, food below head, no body
         head_x = 0
         head_y = 0
         food_x = 0
@@ -75,8 +70,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = []
         expected_output = [0, 1, 2, 1, 0, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 1")
+        count += 1
 
-        count += 1 # Test 2: Head at the maximum board limit, food to the left of head, no body
+    try:
+        # Test 2: Head at the maximum board limit, food to the left of head, no body
         head_x = 10
         head_y = 10
         food_x = 9
@@ -87,8 +86,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = []
         expected_output = [1, 2, 0, 1, 0, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 2")
+        count += 1
 
-        count += 1 # Test 3: Head in the middle, food to the right and above head, body surrounding head
+    try:
+        # Test 3: Head in the middle, food to the right and above head, body surrounding head
         head_x = 5
         head_y = 5
         food_x = 6
@@ -99,8 +102,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(4, 5), (5, 6), (6, 5), (5, 4)]
         expected_output = [2, 2, 1, 0, 1, 1, 1, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 3")
+        count += 1
 
-        count += 1 # Test 4: Head and food at the same position, no body
+    try:
+        # Test 4: Head and food at the same position, no body
         head_x = 3
         head_y = 3
         food_x = 3
@@ -111,8 +118,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = []
         expected_output = [2, 2, 2, 2, 0, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 4")
+        count += 1
 
-        count += 1 # Test 5: Head and food at the same position, with body covering all adjacent positions
+    try:
+        # Test 5: Head and food at the same position, with body covering all adjacent positions
         head_x = 5
         head_y = 5
         food_x = 5
@@ -123,8 +134,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(4, 5), (5, 6), (6, 5), (5, 4), (4, 4), (4, 6), (6, 6), (6, 4)]
         expected_output = [2, 2, 2, 2, 1, 1, 1, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 5")
+        count += 1
 
-        count += 1 # Test 6: Head and food at the same position, with body covering only top adjacent position
+    try:
+        # Test 6: Head and food at the same position, with body covering only top adjacent position
         head_x = 5
         head_y = 5
         food_x = 5
@@ -135,8 +150,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(4, 5)]
         expected_output = [2, 2, 2, 2, 1, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 6")
+        count += 1
 
-        count += 1 # Test 7: Head at the minimum board limit, food to the left of head, body covering all adjacent positions
+    try:
+        # Test 7: Head at the minimum board limit, food to the left of head, body covering all adjacent positions
         head_x = 0
         head_y = 0
         food_x = 0
@@ -147,8 +166,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(0, 1), (1, 0), (1, 1)]
         expected_output = [0, 1, 2, 1, 1, 1, 1, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 7")
+        count += 1
 
-        count += 1 # Test 8: Head at the maximum board limit, food to the left of head, body covering only top adjacent position
+    try:
+        # Test 8: Head at the maximum board limit, food to the left of head, body covering only top adjacent position
         head_x = 10
         head_y = 10
         food_x = 10
@@ -159,8 +182,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(10, 9)]
         expected_output = [1, 2, 0, 1, 1, 0, 0, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 8")
+        count += 1
 
-        count += 1 # Test 9: Head and food at the same position, with body covering only left adjacent position
+    try:
+        # Test 9: Head and food at the same position, with body covering only left adjacent position
         head_x = 5
         head_y = 5
         food_x = 5
@@ -171,8 +198,12 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(5, 4)]
         expected_output = [2, 2, 2, 2, 0, 0, 1, 0]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
+    except Exception as e:
+        print(f"{repr(e)} on test 9")
+        count += 1
 
-        count += 1 # Test 10: Head and food at the same position, with body covering only right adjacent position
+    try:
+        # Test 10: Head and food at the same position, with body covering only right adjacent position
         head_x = 5
         head_y = 5
         food_x = 5
@@ -183,15 +214,23 @@ def psuedo_test_cases(): # pragma: no cover
         body = [(5, 6)]
         expected_output = [2, 2, 2, 2, 0, 0, 0, 1]
         assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == expected_output
-
-        print("All tests passed successfully!")
-
-
     except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("PSUEDO TEST CASE FAILED\n")
+        print(f"{repr(e)} on test 10")
+        count += 1
 
-psuedo_test_cases() # pragma: no cover
+    print(f"Total failed test cases: {count}")
+    return count
+
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage() # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = psuedo_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -208,5 +247,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Psuedo Coverage Percentage:", coverage_percentage) # pragma: no cover

@@ -1,11 +1,5 @@
 import coverage # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body):
         head_pos = [head_x, head_y]
 
@@ -62,93 +56,91 @@ def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID
 
 #BULLET STRUC TESTS
 def bullet_struc_test_cases(): # pragma: no cover
+    count = 0
+
     try:
-        count = 1 # Test 1: Head in the middle, food in the top-right quadrant
-        head_x, head_y = 5, 5
-        food_x, food_y = 8, 2
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = []
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [0, 0, 1, -1, 0, 0, 0, 0]
+        # Test case 1: Head at the top-left corner, food at the bottom-right corner
+        assert func9(0, 0, 9, 9, 0, 9, 10, []) == ['L', 'U', 'R', 'D', False, False, False, False]
+    except AssertionError:
+        print("Test case 1 failed!")
+        count += 1
 
-        count += 1 # Test 2: Head in the top-left corner, food in the bottom-right quadrant
-        head_x, head_y = 0, 0
-        food_x, food_y = 8, 8
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = []
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [1, 1, 1, 1, 0, 0, 0, 0]
+    try:
+        # Test case 2: Head at the top-right corner, food at the bottom-left corner
+        assert func9(9, 0, 0, 9, 0, 9, 10, []) == ['R', 'U', 'L', 'D', False, False, False, False]
+    except AssertionError:
+        print("Test case 2 failed!")
+        count += 1
 
-        count += 1 # Test 3: Head in the middle, food directly below
-        head_x, head_y = 5, 5
-        food_x, food_y = 5, 8
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = []
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [0, 1, 0, -1, 0, 0, 0, 0]
+    try:
+        # Test case 3: Head at the bottom-left corner, food at the top-right corner
+        assert func9(0, 9, 9, 0, 0, 9, 10, []) == ['L', 'D', 'R', 'U', False, False, False, False]
+    except AssertionError:
+        print("Test case 3 failed!")
+        count += 1
 
-        count += 1 # Test 4: Head in the middle, food directly above
-        head_x, head_y = 5, 5
-        food_x, food_y = 5, 2
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = []
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [0, 1, 0, 1, 0, 0, 0, 0]
+    try:
+        # Test case 4: Head at the bottom-right corner, food at the top-left corner
+        assert func9(9, 9, 0, 0, 0, 9, 10, []) == ['R', 'D', 'L', 'U', False, False, False, False]
+    except AssertionError:
+        print("Test case 4 failed!")
+        count += 1
 
-        count += 1 # Test 5: Head in the middle, food directly to the left
-        head_x, head_y = 5, 5
-        food_x, food_y = 2, 5
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = []
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [1, 0, 1, 0, 0, 0, 0, 0]
+    try:
+        # Test case 5: Head in the middle, food directly above
+        assert func9(5, 5, 5, 0, 0, 9, 10, []) == ['-', 'U', '-', 'D', False, False, False, False]
+    except AssertionError:
+        print("Test case 5 failed!")
+        count += 1
 
-        count += 1 # Test 6: Head in the middle, food directly to the right
-        head_x, head_y = 5, 5
-        food_x, food_y = 8, 5
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = []
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [1, 0, -1, 0, 0, 0, 0, 0]
+    try:
+        # Test case 6: Head in the middle, food directly below
+        assert func9(5, 5, 5, 9, 0, 9, 10, []) == ['-', 'D', '-', 'U', False, False, False, False]
+    except AssertionError:
+        print("Test case 6 failed!")
+        count += 1
 
-        count += 1 # Test 7: Head surrounded by body segments
-        head_x, head_y = 5, 5
-        food_x, food_y = 8, 2
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = [(5, 4), (5, 6), (4, 5), (6, 5)]
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [0, 0, 1, -1, 0, 0, 0, 0]
+    try:
+        # Test case 7: Head in the middle, food directly to the left
+        assert func9(5, 5, 0, 5, 0, 9, 10, []) == ['L', '-', 'R', '-', False, False, False, False]
+    except AssertionError:
+        print("Test case 7 failed!")
+        count += 1
 
-        count += 1 # Test 8: Head in the middle, food directly below, surrounded by body segments
-        head_x, head_y = 5, 5
-        food_x, food_y = 5, 8
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = [(5, 4), (5, 6), (4, 5), (6, 5)]
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [0, 1, 0, -1, 1, 0, 1, 0]
+    try:
+        # Test case 8: Head in the middle, food directly to the right
+        assert func9(5, 5, 9, 5, 0, 9, 10, []) == ['R', '-', 'L', '-', False, False, False, False]
+    except AssertionError:
+        print("Test case 8 failed!")
+        count += 1
 
-        count += 1 # Test 9: Head in the middle, food directly above, surrounded by body segments
-        head_x, head_y = 5, 5
-        food_x, food_y = 5, 2
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = [(5, 4), (5, 6), (4, 5), (6, 5)]
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [0, 1, 0, 1, 1, 0, 1, 0]
+    try:
+        # Test case 9: Head in the middle, body segment to the left
+        assert func9(5, 5, 9, 5, 0, 9, 10, [[5, 4]]) == ['R', '-', 'L', '-', False, True, False, False]
+    except AssertionError:
+        print("Test case 9 failed!")
+        count += 1
 
-        count += 1 # Test 10: Head in the middle, food directly to the left, surrounded by body segments
-        head_x, head_y = 5, 5
-        food_x, food_y = 2, 5
-        BOARD_LIMIT_MIN, BOARD_LIMIT_MAX = 0, 10
-        GRID_SIZE = 1
-        body = [(5, 4), (5, 6), (4, 5), (6, 5)]
-        assert func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body) == [1, 0, 1, 0, 0, 1, 0, 0]
+    try:
+        # Test case 10: Head in the middle, body segment directly above
+        assert func9(5, 5, 9, 5, 0, 9, 10, [[5, 6]]) == ['R', '-', 'L', '-', True, False, False, False]
+    except AssertionError:
+        print("Test case 10 failed!")
+        count += 1
 
-        print("All tests passed!")
-    except Exception as e:
-        print(f"{repr(e)} on test case {count}")
-        print("BULLET STRUC TEST CASE FAILED\n")
+    print(f"Total failed test cases: {count}")
+    return count
 
-bullet_struc_test_cases() # pragma: no cover
+def getFailRatio(): # pragma: no cover
+    return failed_ratio
+
+# Create a coverage object
+cov = coverage.Coverage(data_suffix=True) # pragma: no cover
+
+# Start measuring coverage
+cov.start() # pragma: no cover
+
+failed_ratio = bullet_struc_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
 cov.stop() # pragma: no cover
@@ -165,5 +157,3 @@ cov.load() # pragma: no cover
 
 # Get coverage results
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
-
-print("Bullet Struc Coverage Percentage:", coverage_percentage) # pragma: no cover
