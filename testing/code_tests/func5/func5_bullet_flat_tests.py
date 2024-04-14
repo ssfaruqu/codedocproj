@@ -142,12 +142,6 @@ cov = coverage.Coverage(data_suffix=True) # pragma: no cover
 # Start measuring coverage
 cov.start() # pragma: no cover
 
-# Create a coverage object
-cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
-cov.start() # pragma: no cover
-
 failed_ratio = bullet_flat_test_cases()/10 # pragma: no cover
 
 # Stop measuring coverage
