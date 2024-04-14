@@ -123,26 +123,20 @@ def bullet_flat_test_cases(): # pragma: no cover
 def getFailRatio(): # pragma: no cover
     return failed_ratio
 
-# Create a coverage object
 cov = coverage.Coverage(data_suffix=True) # pragma: no cover
-
-# Start measuring coverage
+# start coverage
 cov.start() # pragma: no cover
 
-failed_ratio = bullet_flat_test_cases()/10 # pragma: no cover
+failed_ratio = bullet_flat_test_cases() / 10 # pragma: no cover
 
-# Stop measuring coverage
+# stop coverage
 cov.stop() # pragma: no cover
-
-# Generate coverage report
+# make report
 cov.save() # pragma: no cover
-
 cov.combine() # pragma: no cover
-
 cov.save() # pragma: no cover
-
-# Load coverage report
+# load report
 cov.load() # pragma: no cover
 
-# Get coverage results
+# print report
 coverage_percentage = cov.report() * 0.01 # pragma: no cover
