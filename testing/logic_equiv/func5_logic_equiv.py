@@ -1,12 +1,14 @@
 import hypothesis
 import numpy as np
-from hypothesis import given, strategies as st
+from hypothesis import given, settings, strategies as st
+from hypothesis._settings import Phase
 
 #-------------------- BOARD SCORING TEST ---------------------------------------------------------------->
 rand_board = np.random.choice([1, 2], size=[7, 7], replace=True)
 print(rand_board)
 
 #FAIL
+#@settings(phases=[Phase.explicit])
 @given(player_number= st.integers(min_value=1, max_value=2), row= st.integers(min_value=0, max_value=6), col= st.integers(min_value=0, max_value=6))
 def test_para_flat_func5(player_number, row, col):
     orig =  orig_func5(player_number, row, col)
