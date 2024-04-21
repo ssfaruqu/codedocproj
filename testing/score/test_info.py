@@ -42,10 +42,15 @@ import code_tests.func11.func11_psuedo_tests as func11_psu
 
 # ACCESS TO TEST COVERAGE RATIOS
 cov_5 = coverage.Coverage(data_file="../code_tests/func5/.coverage")
+cov_5.load()
 cov_6 = coverage.Coverage(data_file="../code_tests/func6/.coverage")
+cov_6.load()
 cov_9 = coverage.Coverage(data_file="../code_tests/func9/.coverage")
+cov_9.load()
 cov_10 = coverage.Coverage(data_file="../code_tests/func10/.coverage")
+cov_10.load()
 cov_11 = coverage.Coverage(data_file="../code_tests/func11/.coverage")
+cov_11.load()
 
 # ARRAY INDEX MACROS
 PF_IDX, PST_IDX, BF_IDX, BST_IDX, PSU_IDX = (0,1,2,3,4)
@@ -72,7 +77,7 @@ func11_fail_ratios = [func11_pf.getFailRatio(), func11_pst.getFailRatio(), func1
 # Performs equation
 def score_eq(token, leq, cover, fail):
     a, b, c = 2, 2, 2
-    score = token*(math.pow(leq, a) + math.pow(cover, b)*math.pow(fail, c))
+    score = token*(1/(1 + math.pow(leq, a)) +  math.pow(cover, b)*(math.pow(fail, c) - 1))
     return score
 
 # Calls and prints equation plus input info
