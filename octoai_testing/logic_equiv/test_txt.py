@@ -83,41 +83,46 @@ import math
 import numpy as np
 from hypothesis import given, strategies as st
 
+choices = [40, 80, 120, 160, 200, 240]
 body_len = np.random.randint(1, 10)
 rand_body = np.random.choice([40, 80, 120, 160, 200, 240], size=[body_len, 2])
 rand_body.tolist()
 rand_body = [list(b) for b in rand_body]
-print(rand_body)
 
-def test_para_flat_func9(head_x, head_y, food_x, food_y):
-    orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    flat = para_flat_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    #print(f"orig= {orig}, flat= {flat}")
-    assert  orig == flat
+def test_para_flat_func9():
+    for head_x, head_y, food_x, food_y in ((a,b,c,d) for a in choices for b in choices for c in choices for d in choices):
+        orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        flat = para_flat_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        #print(f"orig= {orig}, flat= {flat}")
+        assert  orig == flat
 
-def test_para_struc_func9(head_x, head_y, food_x, food_y):
-    orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    struc =  para_struc_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    #print(f"orig= {orig}, struc= {struc}")
-    assert  orig == struc
+def test_para_struc_func9():
+    for head_x, head_y, food_x, food_y in ((a,b,c,d) for a in choices for b in choices for c in choices for d in choices):
+        orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        struc =  para_struc_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        #print(f"orig= {orig}, struc= {struc}")
+        assert  orig == struc
 
-def test_bullet_flat_func9(head_x, head_y, food_x, food_y):
-    orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    flat = bullet_flat_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    #print(f"orig= {orig}, flat= {flat}")
-    assert  orig == flat
+def test_bullet_flat_func9():
+    for head_x, head_y, food_x, food_y in ((a,b,c,d) for a in choices for b in choices for c in choices for d in choices):
+        orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        flat = bullet_flat_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        #print(f"orig= {orig}, flat= {flat}")
+        assert  orig == flat
 
-def test_bullet_struc_func9(head_x, head_y, food_x, food_y):
-    orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    struc =  bullet_struc_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    #print(f"orig= {orig}, struc= {struc}")
-    assert  orig == struc
+def test_bullet_struc_func9():
+    for head_x, head_y, food_x, food_y in ((a,b,c,d) for a in choices for b in choices for c in choices for d in choices):
+        orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        struc =  bullet_struc_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        #print(f"orig= {orig}, struc= {struc}")
+        assert  orig == struc
 
-def test_psuedo_func9(head_x, head_y, food_x, food_y):
-    orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    psuedo = psuedo_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
-    #print(f"orig= {orig}, psuedo= {psuedo}")
-    assert  orig == psuedo
+def test_psuedo_func9():
+    for head_x, head_y, food_x, food_y in ((a,b,c,d) for a in choices for b in choices for c in choices for d in choices):
+        orig =  orig_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        psuedo = psuedo_func9(head_x, head_y, food_x, food_y, 40, 240, 40, rand_body)
+        #print(f"orig= {orig}, psuedo= {psuedo}")
+        assert  orig == psuedo
     ''',
 
     '''import hypothesis
