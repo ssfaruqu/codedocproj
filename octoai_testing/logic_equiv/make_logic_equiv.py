@@ -2,11 +2,12 @@ import sys
 import test_txt
 sys.path.insert(0, '..\..\octoai_testing')
 
-import info.orig_info as oi 
+import info.orig_info as oi
+import info.gen_info as gi
 
 # get func and test case names
 func_names = oi.getFuncName()
-test_case_names = ["para_flat", "para_struc", "bullet_flat", "bullet_struc", "psuedo"]
+test_case_names = gi.getTestCaseNames()
 
 # create original funcs by replacing names in each func
 orig_funcs = oi.getFuncs()

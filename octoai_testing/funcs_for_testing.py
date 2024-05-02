@@ -1,4 +1,4 @@
-def func5(player_number, row, col, board=rand_board):
+def func5(player_number, row, col, board):
     score = 1 
     uv_score, lh_score, rh_score = 1, 1, 1
         
@@ -67,7 +67,7 @@ def func6(n):
 
     return new_n
 # test function 3
-def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN=40, BOARD_LIMIT_MAX=240, GRID_SIZE=40, body=rand_body):
+def func9(head_x, head_y, food_x, food_y, BOARD_LIMIT_MIN, BOARD_LIMIT_MAX, GRID_SIZE, body):
         head_pos = [head_x, head_y]
 
         if head_pos[0] == BOARD_LIMIT_MIN: 
@@ -161,7 +161,7 @@ def func10(a, b, c):
     
     return ret
 # test function 5
-def func11(reverse, grid=rand_grid):
+def func11(reverse, grid):
     def process_row(row):
         if len(row) == 1:
             return [row[0], row[0]]

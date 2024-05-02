@@ -9,13 +9,18 @@ import info.orig_info as oi
 
 # list of (prompt, query style) pairs
 input = [
-("Give me only a concise, unstructured one paragraph summary of the following code, including the function's name", "para_flat"),
-("Give me only a concise, structured one paragraph summary of the following code, including a concise section for the function name and summary, input, and return values", "para_struc"),
-("Give only a concise, unstructured bullet point documentation of the following code, including the function's name", "bullet_flat"),
+("Give only a concise, unstructured one paragraph summary of the following code, which incorporates the function's name and inputs", "para_flat"),
+("Give only a concise, structured one paragraph summary of the following code, including a concise section for the function name and summary, input, and return values", "para_struc"),
+("Give only a concise, unstructured bullet point summary of the following code, including a point about the function's name and inputs", "bullet_flat"),
 ("Give only a concise, structured bullet point summary of the following code, including bullet points for the function name and summary, input, and return values", "bullet_struc"),
-("Write only concise psuedocode that gives a high-level description for the following", "psuedo")
+("Write high-level psuedocode for the following code, which incorporates the function's name and inputs", "psuedo")
 ]
 
+# constraints for the model so that it produces python code as needed for testing
+summ_constraints = ", without any introduction or use of ```:\n"
+code_constraints = " Use inputs/outputs with the exact same name and order as in the following summary. Also, do not include any written language or use of ```:\n"
+
+# list of (name, code, length) tuples for each orignal func
 functions = []
 for i in range(0, oi.getNumOfFuncs()):
     functions.append((oi.getFuncName()[i], oi.getFuncs()[i], oi.getFuncLen()[oi.getFuncName()[i]]))
@@ -35,7 +40,7 @@ def generate_code(input):
                 },
                 {
                     "role": "user",
-                    "content": input[0]+ ", without any introduction or use of ```:\n" + code
+                    "content": input[0]+ summ_constraints + code
                 }
             ],
             model="meta-llama-3-70b-instruct",
@@ -60,7 +65,7 @@ def generate_code(input):
                 },
                 {
                     "role": "user",
-                    "content": "Generate only a python function based on the following description, without any other text or the use of ```\n" + summary
+                    "content": "Generate only a python function based on the following description." + code_constraints + summary
                 }
             ],
             model="meta-llama-3-70b-instruct",

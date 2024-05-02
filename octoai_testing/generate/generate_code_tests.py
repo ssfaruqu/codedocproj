@@ -6,15 +6,10 @@ import sys
 sys.path.insert(0, "..\..\octoai_testing")
 
 import info.orig_info as oi 
+import info.gen_info as gi
 
 names  = oi.getFuncName()
-input = [
-    "para_flat",
-    "para_struc",
-    "bullet_flat",
-    "bullet_struc",
-    "psuedo"
-]
+input = gi.getTestCaseNames()
 
 def generate_code_tests(input):
     for name in names:
@@ -35,7 +30,7 @@ def generate_code_tests(input):
                 {
                     "role": "user",
                     "content": '''
-Write python code for just 10 tests, without creating new functions, for a program with the following description, without any other text or use of ```. 
+Write python code for just 10 small tests, without creating new functions, for a program with the following description, without any other text or use of ```. 
 Wrap these test cases in the following try-catch structure, without any other text or use of ```::
 ```
 try:
@@ -83,7 +78,7 @@ TESTS:''' + tests
                 }
             ],
             model="meta-llama-3-70b-instruct",
-            max_tokens= 2048,
+            max_tokens= 4096,
             presence_penalty=0,
             temperature=0.1,
             top_p=0.9,

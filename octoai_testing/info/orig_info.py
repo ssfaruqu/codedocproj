@@ -44,5 +44,3 @@ def getNumOfFuncs():
 # return list of name of each functions
 def getFuncName():
     return func_name
-
-print(getFuncName())

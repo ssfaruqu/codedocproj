@@ -2,11 +2,12 @@ import sys
 sys.path.insert(0, '..\..\octoai_testing')
 
 import info.orig_info as oi 
+import info.gen_info as gi
 
+test_case_names = gi.getTestCaseNames()
 functions = []
 for i in range(0, oi.getNumOfFuncs()):
     functions.append((oi.getFuncName()[i], oi.getFuncs()[i]))
-test_case_names = ["para_flat", "para_struc", "bullet_flat", "bullet_struc", "psuedo"]
 
 for name, code in functions:
     for case in test_case_names:
