@@ -13,7 +13,6 @@ for name in ofi.getFuncName():
     for case in test_case_names:
         f = open("../generate/"+name+"/"+name+"_"+case+".txt")
         txt = f.read()
-        print(txt)
         f.close()
         sl.append(len(txt))
     func_summ_len[name] = sl

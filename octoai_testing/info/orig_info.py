@@ -1,7 +1,7 @@
 import re
 
 # INFORMATION ABOUT TESTING FUNCTIONS
-num_of_funcs = 5
+num_of_funcs = 12
 funcs = []
 func_len = dict()
 func_name = []
