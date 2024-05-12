@@ -27,19 +27,19 @@ Test code must include an assert statement, and must use only valid syntax:
 Write python code for just 10 small tests, without creating new functions, for a program with the following description, without any other text or use of ```. 
 Wrap each individual test case in the following try-catch structure, without any other text or use of the ` character. No test should be longer than 5 lines,
 and no string solution should be longer than 50 characters and no integer solution should be longer than 20 digits. Furthermore, no test should return a value or None.
-You must add an extra indent to each line as though the code was inside a function body, and do not include '```python ```', and test code must have an assert statement and must use only valid syntax:
+You must add an extra indent to each line, and do not include '```python ```', and test code must have an assert statement and must use only valid syntax:
 
 <indent>try:
     <test code>
 <indent>except Exception as e:
     print(f"{repr(e)} on test case <test number>")
     count += 1
-
+    
 '''
 ]
 
-def generate_code_tests(input, llm, prompt):
-    names = oi.getFuncName()
+def generate_code_tests(input, llm, prompt, i):
+    names = [oi.getFuncName()[i]]
 
     for name in names:
         # get summary
@@ -75,19 +75,29 @@ def generate_code_tests(input, llm, prompt):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("llm", help="The LLM model to be used: gpt-3.5-turbo, gpt-4-turbo")
+    parser.add_argument("func", help="Select function: 1-12")
+    parser.add_argument("style", help="Select prompt style: 0= para_flat, 1= para_struc, 2= bullet_flat, 3= bullet_struc, 4= psuedo")
     args = parser.parse_args()
     llm = args.llm
+    func = int(args.func) - 1
+    style = int(args.style)
+
     if llm != "gpt-3.5-turbo" and llm != "gpt-4-turbo":
         print("Selected model not available: Use gpt-3.5-turbo or gpt-4-turbo")
         exit(0)
+    if func not in range(0, 13):
+        print("Selected invalid func")
+        exit(0)
+    if style not in range(0, 5):
+        print("Selected invalid style")
+        exit(0)
 
     gen_info = gi.GenInfo(llm)
-    input = gen_info.getTestCaseNames()
+    input = gen_info.getTestCaseNames()[style]
 
     if llm == "gpt-3.5-turbo":
         i = 0
     else:
         i = 1
 
-    for x in input:
-        generate_code_tests(x, llm, prompts[i])
+    generate_code_tests(input, llm, prompts[i], func)
